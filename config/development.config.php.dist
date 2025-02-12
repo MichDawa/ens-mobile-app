@@ -1,0 +1,41 @@
+<?php
+
+return [
+    // Additional modules to include when in development mode
+    'modules' => [
+        'Laminas\Mvc\I18n',
+        'Laminas\Cache',
+        'Laminas\Paginator',
+        'Laminas\Log',
+        'Laminas\Db',
+        'Laminas\Di',
+        'Laminas\I18n',
+        'Laminas\Form',
+        'Laminas\Hydrator',
+        'Laminas\InputFilter',
+        'Laminas\Filter',
+        'Laminas\DeveloperTools',
+        'Laminas\Cache\Storage\Adapter\Filesystem',
+        'Laminas\Cache\Storage\Adapter\Memory',
+        'DoctrineModule',
+        'DoctrineORMModule',
+        'Laminas\ApiTools\Versioning',
+        'Laminas\ZendFrameworkBridge',
+        'Laminas\ApiTools\ApiProblem',
+        'Laminas\ApiTools\ContentNegotiation',
+        'Laminas\ApiTools\Rpc',
+        'Laminas\ApiTools\MvcAuth',
+        'Laminas\ApiTools\Hal',
+        'Laminas\ApiTools\Rest',
+        'Laminas\ApiTools\ContentValidation',
+        'Laminas\ApiTools\Configuration',
+        'Laminas\ApiTools',
+        'Laminas\ApiTools\Admin',
+    ],
+    // Configuration overrides during development mode
+    'module_listener_options' => [
+        'config_glob_paths' => [realpath(__DIR__) . '/autoload/{,*.}{global,local}-development.php'],
+        'config_cache_enabled' => false,
+        'module_map_cache_enabled' => false,
+    ],
+];
