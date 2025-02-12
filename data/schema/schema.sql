@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS ens_mobile_app;
+USE ens_mobile_app;
+
 -- Dumping structure for table ens_mobile_app.user_login
 CREATE TABLE IF NOT EXISTS `user_login` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,

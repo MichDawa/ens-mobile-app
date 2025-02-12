@@ -72,7 +72,8 @@
         "test": "vendor/bin/phpunit",
         "static-analysis": "vendor/bin/psalm --stats",
         "db-setup": [
-            "mysql -u root < data/schema/schema.sql"
+            "\"C:\\xampp\\mysql\\bin\\mysql.exe\" -u root -e \"CREATE DATABASE IF NOT EXISTS ens_mobile_app;\"",
+            "\"C:\\xampp\\mysql\\bin\\mysql.exe\" -u root ens_mobile_app < data/schema/schema.sql"
         ]
     },
     "scripts-descriptions": {
