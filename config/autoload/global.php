@@ -7,7 +7,8 @@ $entityPaths = [
 ];
 
 $drivers = [
-    'Application\\Entity' => 'mobileapp_entity',
+    // 'Application\\Entity' => 'mobileapp_entity',
+    'Login\\Entity' => 'mobileapp_entity',
 ];
 
 return [

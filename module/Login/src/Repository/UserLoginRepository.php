@@ -1,9 +1,9 @@
 <?php
 
-namespace Application\Repository;
+namespace Login\Repository;
 
 use Doctrine\ORM\EntityRepository;
-use Application\Entity\UserLogin;
+use Login\Entity\UserLogin;
 
 class UserLoginRepository extends EntityRepository {
     public function findByUsername(string $username): ?UserLogin {
