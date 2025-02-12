@@ -2,21 +2,37 @@
 
 namespace Login\App\LoginServices;
 
-use Monolog\Logger;
 use Doctrine\ORM\EntityManager;
-use Laminas\View\Model\JsonModel;
+use Application\Infra\Validation\ValidatorUtility;
+use  Login\Repository\UserLoginRepository;
 
 class LoginServiceApp {
-    
-    private $entityManager;
+
+    /**
+     * @var UserLoginRepository
+     */
+    private $userLoginRepository;
 
     public function __construct(
-        EntityManager $entityManager
+        UserLoginRepository $userLoginRepository
     ) {
-        $this->entityManager = $entityManager;
+        $this->userLoginRepository = $userLoginRepository;
     }
 
-    
+    public function getByUsername( $params) {
+        try {
+            $validator = new ValidatorUtility();
+            $validator->addStringValidator("username", true, "Username is required.");
+            $validator->validateAndThrow($params);
 
+            $username = $validator->getValue("username");
+            $forReturn = $this->userLoginRepository->findByUsername($username);
+
+            return $forReturn;
+        } catch (\Exception $err) {
+            $this->userLoginRepository->rollbackAndClose();
+            throw $err;
+        }
+    }
 
 }

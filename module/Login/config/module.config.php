@@ -10,6 +10,11 @@
             \Login\App\LoginServices\LoginServiceApp::class => \Login\App\LoginServices\LoginServiceApp::class,
         ]
     ],
+    'delegators' => [
+        \Login\App\LoginServices\LoginServiceApp::class => [
+            0 => \Application\Logger\LoggerDelegatorFactory::class,
+        ],
+    ],
     'router' => [
         'routes' => [
             'login.user-login' => [
